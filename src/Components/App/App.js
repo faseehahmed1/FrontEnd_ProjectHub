@@ -3,9 +3,9 @@ import NavBar from "../NavBar/navbar";
 import PostForm from "../PostForm/postForm";
 import DropDown from "../DropDown/dropDown";
 import BlogPost from "../BlogPost/blogPost";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const x = createContext(null);
+export const AppContext = createContext(null);
 
 const POST = [
   {
@@ -44,21 +44,44 @@ const POST = [
     post_week: 9,
   },
 ];
-const COMMENT = [
-  { id: 1, user_id: 1, post_id: 1, comment_text: "This is comment on Post 1" },
-  { id: 2, user_id: 1, post_id: 2, comment_text: "This is comment on Post 2" },
-  { id: 3, user_id: 1, post_id: 3, comment_text: "This is comment on Post 3" },
-];
+
+let i = 6;
 
 function App() {
+  const [post, setPost] = useState(POST);
+
+  console.table(post);
+
+  function createNewPost(postContentInput, TopicInput, weekInput) {
+    i++;
+    const newPostObj = [
+      {
+        id: i,
+        user_id: 1,
+        post_text: postContentInput,
+        post_topic: TopicInput,
+        post_week: +weekInput,
+      },
+    ];
+    setPost([...post, ...newPostObj]);
+    console.table(post);
+  }
+
   return (
     <div className="App">
-      <x.Provider value={{ POST, COMMENT }}>
+      <AppContext.Provider value={{ post, createNewPost }}>
         <NavBar />
+        <h1 style={{ marginTop: "70px", color: "white" }}>
+          What project are you working on?
+        </h1>
         <PostForm />
-        <DropDown POST={POST} />
+        <DropDown post={post} />
+        <h1 style={{ marginTop: "15px", color: "white" }}>
+          Projects
+        </h1>
+
         <BlogPost />
-      </x.Provider>
+      </AppContext.Provider>
     </div>
   );
 }

@@ -1,0 +1,108 @@
+.showpost{
+    width: 650px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showpost_input_langduration{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.showpost_input_langduration>input{
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #F7F7F2;
+}
+
+.showpost_input_langduration>input:hover {
+    box-shadow: #F7F7F2 0px 0px 6px 1px;
+}
+
+.showpost_input_langduration>input:focus {
+    box-shadow: #F7F7F2 0px 0px 4px 1px;
+    border: 2px solid grey;
+    outline: none;
+}
+
+.showpost_input_textarea{
+    margin-top: 17px;
+    width: 100%;
+    
+}
+.showpost_input_textarea>textarea{
+    width: 85%;
+    height: 210px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #F7F7F2;
+    resize: none;
+}
+.showpost_input_textarea>textarea:hover{
+box-shadow: #F7F7F2 0px 0px 6px 1px;
+}
+.showpost_input_textarea>textarea:focus {
+    box-shadow: #F7F7F2 0px 0px 6px 1px;
+    border: 2px solid grey;
+    outline: none;
+}
+
+.showpost_input_button{
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.showpost_input_button>button {
+    align-items: center;
+    background-color: #899878;
+    border: 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 700;
+    height: 40px;
+    justify-content: center;
+    letter-spacing: .4px;
+    line-height: 1;
+    max-width: 100%;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-top: 17px;
+    width: 30%;
+}
+
+.showpost_input_button>button {
+    transition: all 200ms;
+}
+
+.showpost_input_button>button:hover {
+    transform: scale(.9);
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 991px) {
+    .showpost_input_button>button {
+        font-size: 15px;
+        height: 50px;
+    }
+
+    .showpost_input_button>button span {
+        line-height: 50px;
+    }
+}

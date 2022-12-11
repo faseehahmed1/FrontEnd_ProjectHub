@@ -1,0 +1,56 @@
+.navBar{
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7F7F2;
+}
+.navBar_buttons{
+    width: 12%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 25px;
+}
+
+.navBar_buttons> button {
+    --b: 3px;
+    /* border thickness */
+    --s: .45em;
+    /* size of the corner */
+    --color: black;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.navBar_buttons> button:hover,
+.navBar_buttons> button:focus-visible {
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+.navBar_buttons> button:active {
+    background: var(--color);
+    color: #fff;
+}
+
+.showpost_input_solidLine{
+    margin-top: 70px;
+    width: 100vw;
+    border: 1px solid #899878;
+}
