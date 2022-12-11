@@ -23,7 +23,7 @@
     margin-right: 20px;
 }
 
-.showComment_main_buttons>button:first-child {
+/* .showComment_main_buttons>button:first-child {
     box-shadow: darkgrey 0px 5px 15px;
     border-radius: 4px;
     border: none;
@@ -35,6 +35,34 @@
     background-size: 20px 20px;
         background-repeat: no-repeat;
         background-position: center;
+} */
+
+.showComment_main_editButton{
+    box-shadow: darkgrey 0px 5px 15px;
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-image: url('../../Assets/Edit\ Button.png');
+    background-size: cover;
+    background-color: #F7F7F2;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.showComment_main_saveButton{
+    box-shadow: darkgrey 0px 5px 15px;
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-image: url('../../Assets/Save\ Button.png');
+    background-size: cover;
+    background-color: #F7F7F2;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .showComment_main_buttons>button:nth-child(2) {
@@ -59,4 +87,14 @@
     background-color: #899878;
     box-shadow: 0 2px #666;
     transform: translateY(2px);
+}
+
+.showComment_main_editable{
+    padding:4px;
+    box-shadow:0 0 10px 0px rgba(0, 0, 0, 0.609);
+}
+
+.showComment_main_editable:focus{
+    outline: none;
+    border: 1px solid black;
 }
