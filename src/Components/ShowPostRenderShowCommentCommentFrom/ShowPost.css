@@ -1,0 +1,94 @@
+.showpost_main{
+    background-color: #121113;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.showpost_main_postandcomment_map{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width:600px;
+}
+
+.showpost_main_postandcomment_map_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7F7F2;
+    border-radius: 4px;
+}
+
+.showpost_main_postandcomment_map_duration{
+    width:25%;
+    margin-left: 15px;
+}
+
+.showpost_main_postandcomment_map_topic{
+width: 50%;
+}
+
+.showpost_main_postandcomment_map_buttons{
+    padding: 0px;
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-right: 20px;
+}
+.showpost_main_postandcomment_map_buttons>button:first-child {
+    box-shadow: darkgrey 0px 5px 15px;   
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-image: url('../../Assets/Edit\ Button.png');
+    background-size: cover;
+    background-color: #F7F7F2;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.showpost_main_postandcomment_map_buttons>button:nth-child(2) {
+    box-shadow: darkgrey 0px 5px 15px;
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-image: url('../../Assets/Delete\ Icon.png');
+    background-size: cover;
+    background-color: #F7F7F2;
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.showpost_main_postandcomment_map_buttons>button:hover{
+    background-color: #899878;
+}
+
+.showpost_main_postandcomment_map_buttons>button:active{
+    background-color: #899878;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+.showpost_main_postandcomment_map_postTextContent{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    background-color: #F7F7F2;
+    border-radius: 4px;
+}
+
+

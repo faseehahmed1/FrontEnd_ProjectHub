@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { blogPostContext } from "../BlogPost/blogPost";
 import { useState } from "react";
+import './commentForm.css'
 
 export default function CommentForm({postIdForComment}) {
   const { createNewComment } = useContext(blogPostContext);
@@ -13,7 +14,7 @@ export default function CommentForm({postIdForComment}) {
   }
 
   return (
-    <div>
+    <div className="commentForm_main">
       <textarea
         value={inputComment}
         style={{ resize: "none" }}
@@ -24,7 +25,7 @@ export default function CommentForm({postIdForComment}) {
           setInputComment(e.target.value);
         }}
       ></textarea>
-      <button onClick={handleNewComment}>Send</button>
+      <button onClick={handleNewComment}></button>
     </div>
   );
 }

@@ -11,36 +11,41 @@ const POST = [
   {
     id: 1,
     user_id: 1,
-    post_text: "Sample Post Text 1",
-    post_topic: "Topic 1",
+    post_text:
+      "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured, object-oriented and functional programming.",
+    post_topic: "Python",
     post_week: 3,
   },
   {
     id: 2,
     user_id: 1,
-    post_text: "Sample Post Text 2",
-    post_topic: "Topic 4",
+    post_text:
+      " Vanilla JS is a fast, lightweight, cross-platform framework for building incredible, powerful JavaScript applications.",
+    post_topic: "Vanilla JS",
     post_week: 4,
   },
   {
     id: 3,
     user_id: 1,
-    post_text: "Sample Post Text 3",
-    post_topic: "Topic 5",
+    post_text:
+      "C++ is a high-level general-purpose programming language created by Danish computer scientist Bjarne Stroustrup as an extension of the C programming language, or C with Classes",
+    post_topic: "C++",
     post_week: 5,
   },
   {
     id: 4,
     user_id: 1,
-    post_text: "Sample Post Text 4",
-    post_topic: "Topic 4",
+    post_text:
+      "PHP is a general-purpose scripting language geared toward web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1993 and released in 1995. The PHP reference implementation is now produced by The PHP Group.",
+    post_topic: "PHP",
     post_week: 7,
   },
   {
     id: 5,
     user_id: 1,
-    post_text: "Sample Post Text 5",
-    post_topic: "Topic 5",
+    post_text:
+      "Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types.",
+    post_topic: "Ruby",
     post_week: 9,
   },
 ];
