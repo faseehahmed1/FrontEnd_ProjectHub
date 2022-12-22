@@ -23,20 +23,6 @@
     margin-right: 20px;
 }
 
-/* .showComment_main_buttons>button:first-child {
-    box-shadow: darkgrey 0px 5px 15px;
-    border-radius: 4px;
-    border: none;
-    height: 25px;
-    width: 25px;
-    background-image: url('../../Assets/Edit\ Button.png');
-    background-size: cover;
-    background-color: #F7F7F2;
-    background-size: 20px 20px;
-        background-repeat: no-repeat;
-        background-position: center;
-} */
-
 .showComment_main_editButton{
     box-shadow: darkgrey 0px 5px 15px;
     border-radius: 4px;

@@ -7,10 +7,13 @@
     background-color: #F7F7F2;
 }
 .navBar_buttons{
-    width: 12%;
+    width: 222px;
     display: flex;
     justify-content: space-around;
     margin-right: 25px;
+}
+.navBar_logo{
+    margin-left: 20px;
 }
 
 .navBar_buttons> button {

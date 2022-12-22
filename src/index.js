@@ -3,18 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from '../src/Components/App/App.js';
 import reportWebVitals from './reportWebVitals';
-import Snowfall from "react-snowfall";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Snowfall
-      style={{
-        position: "fixed",
-        width: "100vw",
-        height: "100vh",
-      }}
-    />
+    
     <App />
   </React.StrictMode>
 );

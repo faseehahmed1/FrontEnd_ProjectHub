@@ -4,7 +4,7 @@ import { blogPostContext } from "../BlogPost/blogPost";
 import "./showComment.css";
 
 export default function ShowComment({ commentText, commentID }) {
-  const { deleteComment } = useContext(blogPostContext);
+  const { deleteComment, editComment } = useContext(blogPostContext);
   const [canEdit, setCanEdit] = useState(false);
   const [editableClass, setEditableClass] = useState(
     "showComment_main_not-editable"
@@ -14,16 +14,17 @@ export default function ShowComment({ commentText, commentID }) {
   );
   const [commentTextBeforeEdit, setCommentTextAfterEdit] =
     useState(commentText);
-
+  
   function handleEdit() {
-    if (canEdit === false) {
-      setEditableClass("showComment_main_editable");
-      setEditButtonIcon("showComment_main_saveButton");
+    if (canEdit === true) {
+      editComment(commentTextBeforeEdit, commentID);
       setCanEdit(!canEdit);
-    } else {
       setEditableClass("showComment_main_not-editable");
       setEditButtonIcon("showComment_main_editButton");
+    } else {
       setCanEdit(!canEdit);
+      setEditableClass("showComment_main_editable");
+      setEditButtonIcon("showComment_main_saveButton");
     }
   }
 
@@ -35,11 +36,14 @@ export default function ShowComment({ commentText, commentID }) {
           className={editableClass}
           onInput={(e) => setCommentTextAfterEdit(e.currentTarget.textContent)}
         >
-          {commentTextBeforeEdit}
+          {commentText}
         </p>
       </div>
       <div className="showComment_main_buttons">
-        <button onClick={handleEdit} className={eidtButtonIcon}></button>
+        <button
+          onClick={handleEdit}
+          className={eidtButtonIcon}
+        ></button>
         <button onClick={() => deleteComment(commentID)}></button>
       </div>
     </div>
