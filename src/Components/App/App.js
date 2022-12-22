@@ -7,14 +7,16 @@ import { createContext, useEffect, useState } from "react";
 import Snowfall from "react-snowfall";
 
 export const AppContext = createContext(null);
+const url = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   const [post, setPost] = useState([]);
-
   //GET all posts on mount
   useEffect(() => {
     async function getPosts() {
-      const response = await fetch(`http://localhost:3001/api/posts`);
+      const response = await fetch(
+        `${url}/api/posts`
+      );
       const data = await response.json();
       setPost(data.payload);
     }
@@ -31,23 +33,23 @@ function App() {
         post_duration: +durationInput,
       };
     console.log(newPostObj);
-    await fetch("http://localhost:3001/api/posts", {
+    await fetch(`${url}/api/posts`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       mode: "cors",
       body: JSON.stringify(newPostObj),
     });
-    const response = await fetch(`http://localhost:3001/api/posts`);
+    const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
   }
 
   //DELETE a post
   async function deletePost(id) {
-    await fetch(`http://localhost:3001/api/posts/${id}`, {
+    await fetch(`${url}/api/posts/${id}`, {
       method: "DELETE",
     });
-    const response = await fetch(`http://localhost:3001/api/posts/`);
+    const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
 
@@ -60,13 +62,13 @@ function App() {
       post_language: post_language,
       post_duration: +post_duration,
     };
-    await fetch(`http://localhost:3001/api/posts/${id}`, {
+    await fetch(`${url}/api/posts/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       mode: "cors",
       body: JSON.stringify(editPostObj),
     });
-    const response = await fetch(`http://localhost:3001/api/posts/`);
+    const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
   }

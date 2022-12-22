@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { useState, useEffect } from "react";
 
 export const blogPostContext = createContext(null);
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export default function BlogPost() {
   const [comment, setComment] = useState([]);
@@ -10,7 +11,7 @@ export default function BlogPost() {
   //GET all comments on mount
   useEffect(() => {
     async function getAllComments() {
-      const response = await fetch("http://localhost:3001/api/comments");
+      const response = await fetch(`${url}/api/comments`);
       const data = await response.json();
       setComment(data.payload);
     }
@@ -24,23 +25,26 @@ export default function BlogPost() {
       post_id: +id,
       comment_text: text,
     };
-    await fetch(`http://localhost:3001/api/comments`, {
+    await fetch(`${url}/api/comments`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       mode: "cors",
       body: JSON.stringify(newCommnetObj),
     });
-    const response = await fetch("http://localhost:3001/api/comments");
+    const response = await fetch(`${url}/api/comments`);
     const data = await response.json();
     setComment(data.payload);
   }
 
   //DELETE a comment
   async function deleteComment(id) {
-    await fetch(`http://localhost:3001/api/comments/${id}`, {
-      method: "DELETE",
-    });
-    const response = await fetch("http://localhost:3001/api/comments");
+    await fetch(
+      `${url}/api/comments/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    const response = await fetch(`${url}/api/comments`);
     const data = await response.json();
     setComment(data.payload);
   }
@@ -50,13 +54,16 @@ export default function BlogPost() {
     const editCommnetObj = {
       comment_text: comment_text,
     };
-    await fetch(`http://localhost:3001/api/comments/${id}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      mode: "cors",
-      body: JSON.stringify(editCommnetObj),
-    });
-    const response = await fetch("http://localhost:3001/api/comments");
+    await fetch(
+      `${url}/api/comments/${id}`,
+      {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        mode: "cors",
+        body: JSON.stringify(editCommnetObj),
+      }
+    );
+    const response = await fetch(`${url}/api/comments`);
     const data = await response.json();
     setComment(data.payload);
   }

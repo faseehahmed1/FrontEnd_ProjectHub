@@ -1,5 +1,6 @@
 import React from "react";
 import './dropDown.css'
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export default function DropDown({ post, setPost }) {
   function filterLanguage(e) {
@@ -18,7 +19,7 @@ export default function DropDown({ post, setPost }) {
 
   async function handleRest() {
     console.log('I was clicked')
-    const response = await fetch("http://localhost:3001/api/posts");
+    const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
   }

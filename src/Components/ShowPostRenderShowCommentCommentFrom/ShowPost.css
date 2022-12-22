@@ -24,17 +24,17 @@
 }
 
 .showpost_main_postandcomment_map_duration{
-    width:25%;
+    width:27%;
     margin-left: 15px;
 }
 
 .showpost_main_postandcomment_map_topic{
-width: 50%;
+width: 46%;
 }
 
 .showpost_main_postandcomment_map_buttons{
     padding: 0px;
-    width: 25%;
+    width: 27%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
