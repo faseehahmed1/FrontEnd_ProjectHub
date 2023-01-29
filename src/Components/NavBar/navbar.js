@@ -4,7 +4,7 @@ export default function NavBar() {
   return (
     <div className="navBar">
       <div className="navBar_logo">
-        <img src={require("../../Assets/Logo.png")} alt="logo"></img>
+        <img src={require("../../Assets/Logo original.png")} alt="logo"></img>
       </div>
       <div className="navBar_buttons">
         <button>Login</button>

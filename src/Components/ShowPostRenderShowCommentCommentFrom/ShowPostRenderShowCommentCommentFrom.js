@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import CommentForm from "../CommentForm/commentForm.js";
 import { blogPostContext } from "../BlogPost/blogPost.js";
 import "./ShowPost.css";
+import ShowPost from '../ShowPost/ShowPost.js'
 
 export default function ShowPostRenderShowCommentCommentFrom() {
   const { post, deletePost, editPost } = useContext(AppContext);
@@ -52,83 +53,32 @@ export default function ShowPostRenderShowCommentCommentFrom() {
       {post.map((currentPostItem) => {
         let postIdToCheckComments = currentPostItem.id;
         return (
-          <div key={currentPostItem.id} className="showpost_main">
-            <div className="showpost_main_postandcomment_map">
-              <div className="showpost_main_postandcomment_map_header">
-                <div className="showpost_main_postandcomment_map_duration">
-                  <p>
-                    Duration:{" "}
-                    <span
-                      contentEditable={canEdit}
-                      className={editableClass}
-                      onInput={(e) =>
-                        setPostDurationAfterEdit(e.currentTarget.textContent)
-                      }
-                    >
-                      {currentPostItem.post_duration}
-                    </span>{" "}
-                    Weeks
-                  </p>
-                </div>
-                <div className="showpost_main_postandcomment_map_topic">
-                  <strong>
-                    <p
-                      contentEditable={canEdit}
-                      className={editableClass}
-                      onInput={(e) =>
-                        setPostLanguageAfterEdit(e.currentTarget.textContent)
-                      }
-                    >
-                      {currentPostItem.post_language}
-                    </p>
-                  </strong>
-                </div>
-                <div className="showpost_main_postandcomment_map_buttons">
-                  <button
-                    onClick={() => {
-                      handleEdit(
-                        postIdToCheckComments,
-                        currentPostItem.post_duration,
-                        currentPostItem.post_language,
-                        currentPostItem.post_text
-                      );
-                    }}
-                    className={eidtButtonIcon}
-                  ></button>
-                  <button
-                    onClick={() => {
-                      deletePost(currentPostItem.id);
-                    }}
-                  ></button>
-                </div>
-              </div>
-              <div className="showpost_main_postandcomment_map_postTextContent">
-                <p
-                  contentEditable={canEdit}
-                  className={editableClass}
-                  onInput={(e) =>
-                    setPostTextAfterEdit(e.currentTarget.textContent)
+          <>
+            <div key={currentPostItem.id} className="showpost_main">
+              <div className="showpost_main_postandcomment_map">
+                <ShowPost
+                  deletePost={deletePost}
+                  postIdToCheckComments={postIdToCheckComments}
+                  currentPostItem={currentPostItem}
+                  editPost={editPost}
+                />
+                {comment.map((currentCommentItem) => {
+                  if (currentCommentItem.post_id === postIdToCheckComments) {
+                    return (
+                      <ShowComment
+                        commentText={currentCommentItem.comment_text}
+                        commentID={currentCommentItem.id}
+                        key={currentCommentItem.id}
+                      />
+                    );
+                  } else {
+                    return null;
                   }
-                >
-                  {currentPostItem.post_text}
-                </p>
+                })}
+                <CommentForm postIdForComment={currentPostItem.id} />
               </div>
-              {comment.map((currentCommentItem) => {
-                if (currentCommentItem.post_id === postIdToCheckComments) {
-                  return (
-                    <ShowComment
-                      commentText={currentCommentItem.comment_text}
-                      commentID={currentCommentItem.id}
-                      key={currentCommentItem.id}
-                    />
-                  );
-                } else {
-                  return null;
-                }
-              })}
-              <CommentForm postIdForComment={currentPostItem.id} />
             </div>
-          </div>
+          </>
         );
       })}
     </div>

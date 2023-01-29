@@ -11,6 +11,10 @@ const url = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   const [post, setPost] = useState([]);
+  const [postForFilter, setPostForFiltler] = useState([]);
+  const [filterOptionLanguage, setFilterOptionLanguage] = useState([])
+ 
+
   //GET all posts on mount
   useEffect(() => {
     async function getPosts() {
@@ -19,6 +23,8 @@ function App() {
       );
       const data = await response.json();
       setPost(data.payload);
+      setFilterOptionLanguage(data.payload);
+      setPostForFiltler(data.payload)
     }
     getPosts();
   }, []);
@@ -42,6 +48,8 @@ function App() {
     const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
+    setFilterOptionLanguage(data.payload);
+    setPostForFiltler(data.payload)
   }
 
   //DELETE a post
@@ -52,7 +60,8 @@ function App() {
     const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
-
+    setFilterOptionLanguage(data.payload);
+    setPostForFiltler(data.payload)
   }
 
   //PATCH a post 
@@ -71,6 +80,8 @@ function App() {
     const response = await fetch(`${url}/api/posts`);
     const data = await response.json();
     setPost(data.payload);
+    setFilterOptionLanguage(data.payload);
+    setPostForFiltler(data.payload)
   }
 
   return (
@@ -94,7 +105,12 @@ function App() {
         </h1>
 
         <PostForm />
-        <DropDown post={post} setPost={setPost} />
+        <DropDown
+          setPost={setPost}
+          filterOptionLanguage={filterOptionLanguage}
+          postForFilter={postForFilter}
+          setFilterOptionLanguage={setFilterOptionLanguage}
+        />
         <h1
           style={{ marginTop: "15px", color: "white" }}
           className="App_h1_hover-underline-animation"
