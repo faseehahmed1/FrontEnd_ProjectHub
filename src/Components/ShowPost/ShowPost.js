@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 export default function ShowPost({ deletePost, currentPostItem, editPost, postIdToCheckComments }) {
     const [canEdit, setCanEdit] = useState(false);
